@@ -11,20 +11,20 @@ mychords = \chordmode {
   r4
   c1:m7
   c1:m7
-  f1:m7
-  f1:m7
+  f,1:m7
+  f,1:m7
   d1:m7.5-
-  g1:7.9-
+  g,1:7.9-
   c1:m7
   c1:m7
-  ees1:m7
-  aes1:7
+  ees,1:m7
+  aes,1:7
   des1:maj7
   des1:6
   d1:m7.5-
-  g1:7.9-
+  g,1:7.9-
   c1:m7
-  d2.:m7.5- g4:7.9-
+  d2.:m7.5- g,4:7.9-
 }
 <<
 \new ChordNames \chordmode {
@@ -53,9 +53,10 @@ mychords = \chordmode {
   g'1~ |
   2. g'4 \bar "|."
 }
-\chordmode {
+\new Staff \chordmode {
+  \clef bass
   \key c \minor 
   \time 4/4
-  \mychords
+  \transpose c c, { \mychords }
 }
 >>

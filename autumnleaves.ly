@@ -1,43 +1,41 @@
 \version "2.22.1"
 % https://www.youtube.com/watch?v=sSRLR7DQ6Dg
-#(ly:expect-warning "cannot end volta")
-#(ly:expect-warning "cannot end volta")
 \header {
-  title = "Autoumn Leaves"
+  title = "Autumn Leaves"
 }
 mychords = \chordmode {
   \partial 2. r2.
   \repeat volta 2 {
-    a1:m7
+    a,1:m7
     d1:7
-    g1:maj7
+    g,1:maj7
     c1:maj7
-    fis1:m7.5-
+    fis,1:m7.5-
   }
   \alternative {
     {
-      b1:7
-      e1:m7
-      e1:m7
+      b,1:7
+      e,1:m7
+      e,1:m7
     }
     {
-      b1:7
+      b,1:7
       e1:m
       e1:m
-      fis1:m7.5-
-      b1:7.9-
+      fis,1:m7.5-
+      b,1:7.9-
       e1:m
       e1:m
-      a1:m7
+      a,1:m7
       d1:7
-      g1:maj7
-      g1:maj7
-      fis1:m7.5-
-      b1:7.9-
+      g,1:maj7
+      g,1:maj7
+      fis,1:m7.5-
+      b,1:7.9-
       e2:m7 e2:7.7-
       d2:m7 d2:7.7-
       c1:maj7
-      b1:7.9-
+      b,1:7.9-
       e1:m
       e1:m
     }
@@ -49,8 +47,8 @@ mychords = \chordmode {
   \set noChordSymbol = ""
   \mychords
 }
-\new Staff  \with { \consists "Volta_engraver" } \fixed c' {
-\set Score.voltaSpannerDuration = #(ly:make-moment 2/4)
+\new Staff \fixed c' {
+  \set Score.voltaSpannerDuration = #(ly:make-moment 4/4)
   \clef treble
   \key g \major
   \time 4/4
@@ -70,7 +68,7 @@ mychords = \chordmode {
       r4 e4 fis4 g4 |
     }
     {
-      a4\repeatTie fis4 a4 g4 | % todo: tie with repeat mark
+      a4\repeatTie fis4 a4 g4 |
       e1~ |
       4 r4 dis4 e4 |
       fis4 b,4 fis2~ |
@@ -92,11 +90,11 @@ mychords = \chordmode {
     }
   }
 }
-\chordmode {
-  \key g \major
+\new Staff \chordmode {
+  \clef bass
   \time 4/4
-  \mychords
+  \key g \major
+  \transpose c c, { \mychords }
 }
 >>
-\layout { \context { \Score \remove "Volta_engraver" } }
 }
